@@ -103,11 +103,6 @@ if __name__ == "__main__":
     print('update')
     wordle.in_word_add('')
     wordle.out_word_add('')
-
-    wordle.word = ['h', 'a', None, None, 'c']
-    print('clue')
-    wordle.clue()
+    wordle.word = [None, None, None, None, None]
     print('psbl_word')
     wordle.psbl_word()
-    # print(q.word_psbl)
-    # print(q.cnts)
