@@ -16,21 +16,21 @@ Before you begin, make sure you have the following tools installed on your compu
 ### Installing
 
 1. Clone the repository to your local machine
-
+```console
 git clone https://github.com/<your-username>/wordle-solver.git
-
+```
 2. Change into the project directory
-
+```console
 cd wordle-solver
-
+```
 3. Install the required packages
-
+```console
 pip install -r requirements.txt
-
+```
 4. Run the program
-
+```console
 python3 play_daily_wordle.py
-
+```
 ## Usage
 
 The program will solve the daily wordle for you using selenium
