@@ -14,7 +14,6 @@ class wordle_solver:
         self.cnts = self.prevalence()
         self.word = [None] * 5
         self.not_in_word = set()
-        self.in_word = []
         self.in_word_ordered = {i: [] for i in range(5)}
 
     # Loads a list of words from a file
@@ -59,7 +58,7 @@ class wordle_solver:
         print(len(word_scores))
 
     # Prints the top 10 possible words based on prevalence
-    def psbl_word(self):
+    def psbl_word(self, word_print=False):
         self.update_words()
         word_scores = []
         self.cnts = self.prevalence()
@@ -71,8 +70,11 @@ class wordle_solver:
             score = round(score)
             word_scores.append([word, score])
         word_scores.sort(key=lambda w: w[1])
-        print(word_scores[-1:-10:-1])
-        print(len(word_scores))
+        if word_print:
+            print(word_scores[-1:-10:-1])
+            print(len(word_scores))
+        else:
+            return word_scores[-1][0]
 
     # Updates the list of clues and possible words based on letters that are known to be in or not in the word
     def update_words(self):
@@ -81,18 +83,24 @@ class wordle_solver:
 
         self.word_psbl = [word for word in self.word_psbl
                           if all(character not in word for character in self.not_in_word)
-                          and all(character in word for character in self.in_word)
                           and all(word[pos] == self.word[pos] or self.word[pos] is None for pos in range(5))
                           and all(word[pos] != character for pos in range(5) for character in self.in_word_ordered[pos])]
 
     def out_word_add(self, letters):
-        self.not_in_word.update(list(letters))
-
-    def in_word_add(self, letters):
-        self.in_word.extend(list(letters))
+        for letter in list(letters):
+            if letter not in self.word and not any(letter in lst for lst in self.in_word_ordered.values()):
+                self.not_in_word.update(letter)
 
     def letter_add(self, letter, pos):
+        self.not_in_word.discard(letter)
         self.word[pos] = letter
 
     def out_of_order_letter_add(self, letter, pos):
+        self.not_in_word.discard(letter)
         self.in_word_ordered[pos].append(letter)
+
+    def complete(self):
+        if None not in self.word:
+            return True
+        else:
+            return False
