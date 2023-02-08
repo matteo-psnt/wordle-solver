@@ -1,6 +1,6 @@
 # Wordle Solver
 
-Wordle Solver is a program that can solve Wordles, a popular word puzzle game. The program can be used to compleate the daily wordle for you.
+Wordle Solver is a program that can solve Wordles, a popular word puzzle game. The program can be used to compleate the daily wordle for you in Hard mode.
 
 ## Getting Started
 
