@@ -1,12 +1,8 @@
 # Wordle Solver
 
-Wordle Solver is a program that can solve Wordles, a popular word puzzle game. Given a set of letters, the program finds all the words that can be made from those letters.
+Wordle Solver is a program that can solve Wordles, a popular word puzzle game. The program can be used to compleate the daily wordle for you.
 
 ## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
 
 Before you begin, make sure you have the following tools installed on your computer:
 
@@ -33,4 +29,4 @@ python3 play_daily_wordle.py
 ```
 ## Usage
 
-The program will solve the daily wordle for you using selenium
+Once you've completed the installation process, you can use Wordle Solver to solve the daily Wordles. The program uses Selenium to complete the puzzles for you, so all you have to do is sit back and watch the program do its magic.
