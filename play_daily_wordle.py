@@ -26,13 +26,21 @@ if __name__ == "__main__":
     # Open the website
     driver.get('https://www.nytimes.com/games/wordle/index.html')
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+    # Click the "Play" button
+    try:
+        playButton = driver.find_element(By.CLASS_NAME, "Welcome-module_button__ZG0Zh")
+        playButton.click()
+    except Exception as ex:
+        print(ex)
+
+
+    # Close the rules popup
     try:
         exitButton = driver.find_element(By.CLASS_NAME, "Modal-module_closeIcon__TcEKb")
         exitButton.click()
     except Exception as ex:
-        template = "An exception of type {0} occurred. Arguments:\n{1!r}"
-        message = template.format(type(ex).__name__, ex.args)
-        print(message)
+        print(ex)
 
 
     # Enter the word "crane"
